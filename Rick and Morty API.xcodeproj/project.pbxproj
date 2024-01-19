@@ -15,6 +15,14 @@
 		7C6037672B59896D0071F7A9 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 7C6037662B59896D0071F7A9 /* SwiftyGif */; };
 		7C6037692B5989B70071F7A9 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037682B5989B70071F7A9 /* LogoAnimationView.swift */; };
 		7C60376C2B5991A10071F7A9 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60376B2B5991A10071F7A9 /* UIView+Constraints.swift */; };
+		7C60376E2B5994020071F7A9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60376D2B5994020071F7A9 /* Model.swift */; };
+		7C6037712B5996D10071F7A9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7C6037702B5996D10071F7A9 /* Alamofire */; };
+		7C6037732B5998F60071F7A9 /* ApiFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037722B5998F60071F7A9 /* ApiFetch.swift */; };
+		7C6037762B5AA5B20071F7A9 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037752B5AA5B20071F7A9 /* Dynamic.swift */; };
+		7C6037782B5AA6930071F7A9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037772B5AA6930071F7A9 /* ViewModel.swift */; };
+		7C60377A2B5AAE5F0071F7A9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037792B5AAE5F0071F7A9 /* MainView.swift */; };
+		7C60377C2B5AB00B0071F7A9 /* CastomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60377B2B5AB00B0071F7A9 /* CastomTableViewCell.swift */; };
+		7CA0F6172B5B0F5D00B87596 /* RubikBurned-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA0F6162B5B0F5D00B87596 /* RubikBurned-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +35,13 @@
 		7C60375F2B597DB20071F7A9 /* icegif-519.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "icegif-519.gif"; sourceTree = "<group>"; };
 		7C6037682B5989B70071F7A9 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		7C60376B2B5991A10071F7A9 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		7C60376D2B5994020071F7A9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7C6037722B5998F60071F7A9 /* ApiFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiFetch.swift; sourceTree = "<group>"; };
+		7C6037752B5AA5B20071F7A9 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		7C6037772B5AA6930071F7A9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		7C6037792B5AAE5F0071F7A9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		7C60377B2B5AB00B0071F7A9 /* CastomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomTableViewCell.swift; sourceTree = "<group>"; };
+		7CA0F6162B5B0F5D00B87596 /* RubikBurned-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikBurned-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6037672B59896D0071F7A9 /* SwiftyGif in Frameworks */,
+				7C6037712B5996D10071F7A9 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +99,7 @@
 			children = (
 				7C60374A2B59535D0071F7A9 /* Assets.xcassets */,
 				7C60374F2B59535D0071F7A9 /* Info.plist */,
+				7CA0F6162B5B0F5D00B87596 /* RubikBurned-Regular.ttf */,
 				7C60375F2B597DB20071F7A9 /* icegif-519.gif */,
 			);
 			path = Resources;
@@ -101,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				7C6037452B59535A0071F7A9 /* ViewController.swift */,
+				7C6037792B5AAE5F0071F7A9 /* MainView.swift */,
+				7C60377B2B5AB00B0071F7A9 /* CastomTableViewCell.swift */,
 				7C6037682B5989B70071F7A9 /* LogoAnimationView.swift */,
 			);
 			path = Views;
@@ -109,6 +128,8 @@
 		7C6037592B595EC90071F7A9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7C6037742B5AA5820071F7A9 /* Bindings */,
+				7C6037772B5AA6930071F7A9 /* ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -116,6 +137,8 @@
 		7C60375A2B595EDD0071F7A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7C60376D2B5994020071F7A9 /* Model.swift */,
+				7C6037722B5998F60071F7A9 /* ApiFetch.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -126,6 +149,14 @@
 				7C60376B2B5991A10071F7A9 /* UIView+Constraints.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7C6037742B5AA5820071F7A9 /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				7C6037752B5AA5B20071F7A9 /* Dynamic.swift */,
+			);
+			path = Bindings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +177,7 @@
 			name = "Rick and Morty API";
 			packageProductDependencies = (
 				7C6037662B59896D0071F7A9 /* SwiftyGif */,
+				7C6037702B5996D10071F7A9 /* Alamofire */,
 			);
 			productName = "Rick and Morty API";
 			productReference = 7C60373E2B59535A0071F7A9 /* Rick and Morty API.app */;
@@ -177,6 +209,7 @@
 			mainGroup = 7C6037352B59535A0071F7A9;
 			packageReferences = (
 				7C6037652B59896D0071F7A9 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				7C60376F2B5996D10071F7A9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 7C60373F2B59535A0071F7A9 /* Products */;
 			projectDirPath = "";
@@ -193,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6037602B597DB20071F7A9 /* icegif-519.gif in Resources */,
+				7CA0F6172B5B0F5D00B87596 /* RubikBurned-Regular.ttf in Resources */,
 				7C60374B2B59535D0071F7A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,8 +239,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6037462B59535A0071F7A9 /* ViewController.swift in Sources */,
+				7C6037732B5998F60071F7A9 /* ApiFetch.swift in Sources */,
+				7C60377C2B5AB00B0071F7A9 /* CastomTableViewCell.swift in Sources */,
+				7C6037782B5AA6930071F7A9 /* ViewModel.swift in Sources */,
+				7C60377A2B5AAE5F0071F7A9 /* MainView.swift in Sources */,
 				7C6037422B59535A0071F7A9 /* AppDelegate.swift in Sources */,
 				7C60376C2B5991A10071F7A9 /* UIView+Constraints.swift in Sources */,
+				7C60376E2B5994020071F7A9 /* Model.swift in Sources */,
+				7C6037762B5AA5B20071F7A9 /* Dynamic.swift in Sources */,
 				7C6037692B5989B70071F7A9 /* LogoAnimationView.swift in Sources */,
 				7C6037442B59535A0071F7A9 /* SceneDelegate.swift in Sources */,
 			);
@@ -421,6 +461,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		7C60376F2B5996D10071F7A9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -428,6 +476,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7C6037652B59896D0071F7A9 /* XCRemoteSwiftPackageReference "SwiftyGif" */;
 			productName = SwiftyGif;
+		};
+		7C6037702B5996D10071F7A9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C60376F2B5996D10071F7A9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

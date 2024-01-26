@@ -85,11 +85,11 @@
 		7C6037552B5959B30071F7A9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7C60376A2B5991740071F7A9 /* Extensions */,
 				7C6037572B595A190071F7A9 /* App */,
 				7C60375A2B595EDD0071F7A9 /* Models */,
 				7C6037592B595EC90071F7A9 /* ViewModels */,
 				7C6037582B595EBB0071F7A9 /* Views */,
+				7C60376A2B5991740071F7A9 /* Extensions */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

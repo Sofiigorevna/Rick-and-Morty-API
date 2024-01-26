@@ -103,6 +103,11 @@ class CastomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imagePhoto.image = nil 
+    }
+    
     // MARK: - Setup
     
     private func setupHierarhy() {

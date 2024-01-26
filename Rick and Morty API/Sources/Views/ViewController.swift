@@ -12,13 +12,9 @@ class ViewController: UIViewController {
     
     // MARK: - Outlets
     
-    private var mainView = MainView()
-    
-    private var dataHandler: [Characters] = []
-
     var viewModel = ViewModel()
-
     let logoAnimationView = LogoAnimationView()
+    private var mainView = MainView()
     
     private lazy var titleLabel: UILabel = {
         var label = UILabel()
@@ -29,7 +25,6 @@ class ViewController: UIViewController {
         return label
     }()
     
-    
     //  MARK: - Lifecycle
     
     override func loadView() {
@@ -38,8 +33,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-
         setupView()
         viewConfiguration()
 
@@ -59,12 +52,10 @@ class ViewController: UIViewController {
     // MARK: - Setup
 
     private func setupView() {
-        
-        APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: nil ){ apiData in
-            self.dataHandler = apiData
-            
+        APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: nil ){ [weak self] apiData in
+            self?.viewModel.dataHandler = apiData
             DispatchQueue.main.async{
-                self.mainView.tableView.reloadData()
+                self?.mainView.tableView.reloadData()
             }
         }
     }
@@ -76,7 +67,6 @@ class ViewController: UIViewController {
     
     private func setupHierarhy() {
         view.addSubview(logoAnimationView)
-
     }
 
     private func setupLayout() {
@@ -89,14 +79,21 @@ class ViewController: UIViewController {
         mainView.tableView.register(CastomTableViewCell.self, forCellReuseIdentifier: "cell")
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
+        mainView.tableView.prefetchDataSource = self
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ViewController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            print("Prefetching \(indexPath.row)")
+            let _ = viewModel.dataHandler[indexPath.row]
+            APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: nil, handler: nil)
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return dataHandler.count
+        return viewModel.dataHandler.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -106,8 +103,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CastomTableViewCell
-        cell?.character = dataHandler[indexPath.row]
-        cell?.contentView.backgroundColor = .systemGray6
+        cell?.character = viewModel.dataHandler[indexPath.row]
         return cell ?? UITableViewCell()
     }
     

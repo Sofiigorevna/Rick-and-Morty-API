@@ -11,8 +11,6 @@ public final class MainView: UIView {
     
     // MARK: - Outlets
     
-    var data: [Results] = []
-    
     public lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.backgroundColor = .systemGray2

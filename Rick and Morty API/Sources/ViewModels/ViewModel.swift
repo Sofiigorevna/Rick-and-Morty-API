@@ -9,4 +9,6 @@ import Foundation
 
 class ViewModel {
     var status = Dynamic("")
+    
+    var dataHandler: [Characters] = []
 }

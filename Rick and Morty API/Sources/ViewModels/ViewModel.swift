@@ -8,7 +8,22 @@
 import Foundation
 
 class ViewModel {
-    var status = Dynamic("")
+    var isLoading: Dynamic<Bool> = Dynamic(false)
+    var dataSource: [Characters] = []
+    var cellDataSource: Dynamic<[Characters]> = Dynamic(nil)
     
-    var dataHandler: [Characters] = []
+    func getData() {
+        isLoading.value = true
+        
+        APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: nil ){ [weak self] apiData in
+            guard let self else {return}
+            self.isLoading.value = false
+            self.dataSource = apiData
+            self.mapCellData()
+        }
+    }
+    
+    func mapCellData() {
+        cellDataSource.value = dataSource
+    }
 }

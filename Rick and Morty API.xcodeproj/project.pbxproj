@@ -23,6 +23,7 @@
 		7C60377A2B5AAE5F0071F7A9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037792B5AAE5F0071F7A9 /* MainView.swift */; };
 		7C60377C2B5AB00B0071F7A9 /* CastomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60377B2B5AB00B0071F7A9 /* CastomTableViewCell.swift */; };
 		7CA0F6172B5B0F5D00B87596 /* RubikBurned-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA0F6162B5B0F5D00B87596 /* RubikBurned-Regular.ttf */; };
+		7CA0F61E2B64505000B87596 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA0F61D2B64505000B87596 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7C6037792B5AAE5F0071F7A9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7C60377B2B5AB00B0071F7A9 /* CastomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomTableViewCell.swift; sourceTree = "<group>"; };
 		7CA0F6162B5B0F5D00B87596 /* RubikBurned-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikBurned-Regular.ttf"; sourceTree = "<group>"; };
+		7CA0F61D2B64505000B87596 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C502E1E2B64AD8A00565D01 /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				7CA0F61D2B64505000B87596 /* DetailViewController.swift */,
+			);
+			path = DetailVC;
+			sourceTree = "<group>";
+		};
+		7C502E1F2B64ADA700565D01 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				7C6037452B59535A0071F7A9 /* ViewController.swift */,
+				7C6037792B5AAE5F0071F7A9 /* MainView.swift */,
+				7C60377B2B5AB00B0071F7A9 /* CastomTableViewCell.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		7C502E202B64ADBB00565D01 /* Logoview */ = {
+			isa = PBXGroup;
+			children = (
+				7C6037682B5989B70071F7A9 /* LogoAnimationView.swift */,
+			);
+			path = Logoview;
+			sourceTree = "<group>";
+		};
+		7C502E212B6932A000565D01 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7C6037722B5998F60071F7A9 /* ApiFetch.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		7C6037352B59535A0071F7A9 = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +123,9 @@
 			children = (
 				7C6037572B595A190071F7A9 /* App */,
 				7C60375A2B595EDD0071F7A9 /* Models */,
-				7C6037592B595EC90071F7A9 /* ViewModels */,
 				7C6037582B595EBB0071F7A9 /* Views */,
+				7C6037592B595EC90071F7A9 /* ViewModels */,
+				7C502E212B6932A000565D01 /* Networking */,
 				7C60376A2B5991740071F7A9 /* Extensions */,
 			);
 			path = Sources;
@@ -117,10 +154,9 @@
 		7C6037582B595EBB0071F7A9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7C6037452B59535A0071F7A9 /* ViewController.swift */,
-				7C6037792B5AAE5F0071F7A9 /* MainView.swift */,
-				7C60377B2B5AB00B0071F7A9 /* CastomTableViewCell.swift */,
-				7C6037682B5989B70071F7A9 /* LogoAnimationView.swift */,
+				7C502E1F2B64ADA700565D01 /* MainVC */,
+				7C502E1E2B64AD8A00565D01 /* DetailVC */,
+				7C502E202B64ADBB00565D01 /* Logoview */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				7C60376D2B5994020071F7A9 /* Model.swift */,
-				7C6037722B5998F60071F7A9 /* ApiFetch.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,6 +276,7 @@
 				7C6037462B59535A0071F7A9 /* ViewController.swift in Sources */,
 				7C6037732B5998F60071F7A9 /* ApiFetch.swift in Sources */,
 				7C60377C2B5AB00B0071F7A9 /* CastomTableViewCell.swift in Sources */,
+				7CA0F61E2B64505000B87596 /* DetailViewController.swift in Sources */,
 				7C6037782B5AA6930071F7A9 /* ViewModel.swift in Sources */,
 				7C60377A2B5AAE5F0071F7A9 /* MainView.swift in Sources */,
 				7C6037422B59535A0071F7A9 /* AppDelegate.swift in Sources */,

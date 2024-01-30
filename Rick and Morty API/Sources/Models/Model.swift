@@ -20,8 +20,8 @@ public struct Characters: Decodable {
     let species: String?
     let gender: String?
     let status: String?
-  //  let location: [Locations]?
-  //  let episode: [Episodes]?
+    let location: Locations?
+    let episode: [String]?
     let image: String?
     
     enum CodingKeys: String, CodingKey {
@@ -29,25 +29,17 @@ public struct Characters: Decodable {
         case species
         case gender
         case status
-      //  case location
-      //  case episode
+        case location
+        case episode
         case image
     }
 }
 
 public struct Locations : Decodable {
     let name: String?
-    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case name
-        case url
     }
 }
 
-public struct Episodes : Decodable {
-
-//    enum CodingKeys: String, CodingKey {
-//
-//    }
-}

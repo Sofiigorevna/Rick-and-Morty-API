@@ -28,7 +28,8 @@ class APIFetchHandler {
         }
     }
     
-    func fetchAPIData(queryItemValue: String?, handler: (([Characters]) -> Void)? ) {
+    func fetchAPIData(queryItemValue: String?,
+                      handlerMain: (([Characters]) -> Void)?) {
         let baseURL = "https://rickandmortyapi.com"
         let urlPath = "/api/character"
         let queryItem = [URLQueryItem(name: "name", value: queryItemValue)]
@@ -40,14 +41,14 @@ class APIFetchHandler {
          */
         
         if let data = cashed {
-            handler?(data)
+            handlerMain?(data)
             return
         }
         
-        // следим,чтобы функция fetchAPIData не стала неприрывной, т.е. во время зарузки не запускалась снова 
+        // следим,чтобы функция fetchAPIData не стала неприрывной, т.е. во время зарузки не запускалась снова
         
         guard !isStarting else {
-            self.callback = handler
+            self.callback = handlerMain
             return
         }
         
@@ -66,7 +67,7 @@ class APIFetchHandler {
                             self.cashed = result
                             self.callback?(result)
                             self.callback = nil
-                            handler?(result)
+                            handlerMain?(result)
                         }
                     } catch {
                         print(String(describing: error))

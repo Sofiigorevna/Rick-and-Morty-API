@@ -9,18 +9,20 @@ import Foundation
 
 class Dynamic<T> {
     
-    typealias Listener = (T) -> Void
+    typealias Listener = (T?) -> Void
     
     private var listener: Listener?
     
-    var value: T {
+    var value: T? {
         didSet{
-            listener?(value)
+            DispatchQueue.main.async {
+                self.listener?(self.value)
+            }
         }
     }
     
-    init(_ v: T) {
-        self.value = v
+    init(_ value: T?) {
+        self.value = value
     }
     
     func bind(_ listener: Listener?) {

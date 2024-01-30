@@ -21,13 +21,14 @@ extension UIView {
 
 extension UIView {
     //добавление блюр эффекта для бэкграунда
-    
     func addBlurredBackground(style: UIBlurEffect.Style){
         let blurEffect = UIBlurEffect(style: style)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = self.frame
-        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurView.frame = self.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin ]
+        blurView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(blurView)
         self.sendSubviewToBack(blurView)
     }
 }
+

@@ -46,7 +46,6 @@ class APIFetchHandler {
         }
         
         // следим,чтобы функция fetchAPIData не стала неприрывной, т.е. во время зарузки не запускалась снова
-        
         guard !isStarting else {
             self.callback = handlerMain
             return

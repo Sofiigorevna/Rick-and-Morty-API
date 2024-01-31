@@ -12,10 +12,10 @@ class ViewController: UIViewController {
     
     // MARK: - Outlets
     
-    var viewModel = ViewModel()
-    let logoAnimationView = LogoAnimationView()
+    private var viewModel = ViewModel()
+    private let logoAnimationView = LogoAnimationView()
     private var mainView = MainView()
-    var cellDataSource = [Characters]()
+    private var cellDataSource = [Characters]()
     
     private lazy var titleLabel: UILabel = {
         var label = UILabel()
@@ -32,6 +32,11 @@ class ViewController: UIViewController {
         return indicator
     }()
     
+    private lazy var searchController: UISearchController = {
+        var search = UISearchController(searchResultsController: nil)
+        return search
+    }()
+    
     //  MARK: - Lifecycle
     
     override func loadView() {
@@ -45,14 +50,16 @@ class ViewController: UIViewController {
         setupLayout()
         setupLogoAnimation()
         bindViewModel()
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.titleView = titleLabel
+        navigationItem.searchController = searchController
+        setupSearchController()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         logoAnimationView.logoGifImageView.startAnimatingGif()
-        viewModel.getData()
+        viewModel.getData(nil)
     }
     
     // MARK: - Setup
@@ -89,13 +96,20 @@ class ViewController: UIViewController {
             }
         }
         
-        viewModel.cellDataSource.bind({ [weak self] users in
-            guard let self, let users else {return}
-            self.cellDataSource = users
+        viewModel.cellDataSource.bind({ [weak self] characters in
+            guard let self, let characters else {return}
+            self.cellDataSource = characters
             DispatchQueue.main.async{
                 self.mainView.tableView.reloadData()
             }
         })
+    }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search..."
+        definesPresentationContext = true
     }
 }
 
@@ -104,10 +118,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, UITableVie
         for indexPath in indexPaths {
             print("Prefetching \(indexPath.row)")
             let _ = viewModel.dataSource[indexPath.row]
-            APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: nil, handlerMain: nil)
+           // APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: nil, handlerMain: nil)
         }
     }
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.dataSource.count
     }
@@ -128,6 +142,33 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, UITableVie
         viewController.character = viewModel.dataSource[indexPath.row]
         viewController.locations = viewModel.dataSource[indexPath.row].location
         present(viewController, animated: true)
+    }
+}
+
+extension ViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filtered()
+    }
+    
+    func filtered(){
+        guard let text = searchController.searchBar.text else {return}
+        viewModel.getData(text)
+        bindViewModel()
+        DispatchQueue.main.async{
+            self.mainView.tableView.reloadData()
+        }
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

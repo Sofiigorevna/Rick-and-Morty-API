@@ -12,10 +12,10 @@ class ViewModel {
     var dataSource: [Characters] = []
     var cellDataSource: Dynamic<[Characters]> = Dynamic(nil)
     
-    func getData() {
+    func getData(_ valueForFilter: String?) {
         isLoading.value = true
         
-        APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: nil ){ [weak self] apiData in
+        APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: valueForFilter ){ [weak self] apiData in
             guard let self else {return}
             self.isLoading.value = false
             self.dataSource = apiData

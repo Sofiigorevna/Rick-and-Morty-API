@@ -1,0 +1,29 @@
+//
+//  ViewMoel.swift
+//  Rick and Morty API
+//
+//  Created by 1234 on 19.01.2024.
+//
+
+import Foundation
+
+class ViewModel {
+    var isLoading: Dynamic<Bool> = Dynamic(false)
+    var dataSource: [Characters] = []
+    var cellDataSource: Dynamic<[Characters]> = Dynamic(nil)
+    
+    func getData() {
+        isLoading.value = true
+        
+        APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: nil ){ [weak self] apiData in
+            guard let self else {return}
+            self.isLoading.value = false
+            self.dataSource = apiData
+            self.mapCellData()
+        }
+    }
+    
+    func mapCellData() {
+        cellDataSource.value = dataSource
+    }
+}

@@ -54,7 +54,7 @@ class APIFetchHandler {
         isStarting = true
         
         guard let url = urlRequest else {return}
-        
+        print(url)
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil)
             .response{ resp in
                 switch resp.result{

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C6037422B59535A0071F7A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037412B59535A0071F7A9 /* AppDelegate.swift */; };
 		7C6037442B59535A0071F7A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037432B59535A0071F7A9 /* SceneDelegate.swift */; };
-		7C6037462B59535A0071F7A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037452B59535A0071F7A9 /* ViewController.swift */; };
+		7C6037462B59535A0071F7A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6037452B59535A0071F7A9 /* MainViewController.swift */; };
 		7C60374B2B59535D0071F7A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C60374A2B59535D0071F7A9 /* Assets.xcassets */; };
 		7C6037602B597DB20071F7A9 /* icegif-519.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7C60375F2B597DB20071F7A9 /* icegif-519.gif */; };
 		7C6037672B59896D0071F7A9 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 7C6037662B59896D0071F7A9 /* SwiftyGif */; };
@@ -30,7 +30,7 @@
 		7C60373E2B59535A0071F7A9 /* Rick and Morty API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick and Morty API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6037412B59535A0071F7A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C6037432B59535A0071F7A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7C6037452B59535A0071F7A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7C6037452B59535A0071F7A9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7C60374A2B59535D0071F7A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C60374F2B59535D0071F7A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C60375F2B597DB20071F7A9 /* icegif-519.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "icegif-519.gif"; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		7C502E1F2B64ADA700565D01 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
-				7C6037452B59535A0071F7A9 /* ViewController.swift */,
+				7C6037452B59535A0071F7A9 /* MainViewController.swift */,
 				7C6037792B5AAE5F0071F7A9 /* MainView.swift */,
 				7C60377B2B5AB00B0071F7A9 /* CastomTableViewCell.swift */,
 			);
@@ -273,7 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C6037462B59535A0071F7A9 /* ViewController.swift in Sources */,
+				7C6037462B59535A0071F7A9 /* MainViewController.swift in Sources */,
 				7C6037732B5998F60071F7A9 /* ApiFetch.swift in Sources */,
 				7C60377C2B5AB00B0071F7A9 /* CastomTableViewCell.swift in Sources */,
 				7CA0F61E2B64505000B87596 /* DetailViewController.swift in Sources */,

@@ -13,7 +13,7 @@ public final class MainView: UIView {
     
     public lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.backgroundColor = .systemGray2
+        tableView.backgroundColor = .systemGray3
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()

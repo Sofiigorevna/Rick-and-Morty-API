@@ -8,7 +8,7 @@
 import UIKit
 import SwiftyGif
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     // MARK: - Outlets
     
@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     private let logoAnimationView = LogoAnimationView()
     private var mainView = MainView()
     private var cellDataSource = [Characters]()
-    private var filterData = [Characters]()
     
     private lazy var titleLabel: UILabel = {
         var label = UILabel()
@@ -47,6 +46,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = titleLabel
+        navigationController?.navigationBar.barTintColor = .systemGray3
         viewConfiguration()
         setupHierarhy()
         setupLayout()
@@ -110,16 +110,15 @@ class ViewController: UIViewController {
         searchController.searchBar.placeholder = "Search..."
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching  {
+extension MainViewController: UITableViewDataSource,
+                              UITableViewDelegate,
+                              UITableViewDataSourcePrefetching  {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
-            print("Prefetching \(indexPath.row)")
             let _ = cellDataSource[indexPath.row]
-            APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: nil, handlerMain: nil)
         }
     }
     
@@ -148,18 +147,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, UITableVie
 
 // MARK: - UISearchBarDelegate
 
-extension ViewController: UISearchBarDelegate {
+extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        APIFetchHandler.sharedInstance.fetchAPIData(queryItemValue: searchText.trimmingCharacters(in: .whitespaces)) { [weak self] apiData in
-            self?.cellDataSource = apiData
-            DispatchQueue.main.async{
-                self?.mainView.tableView.reloadData()
-            }
-        }
+        viewModel.getData(searchText)
+        bindViewModel()
     }
 }
 
-extension ViewController: SwiftyGifDelegate {
+extension MainViewController: SwiftyGifDelegate {
     func gifDidStop(sender: UIImageView) {
         logoAnimationView.isHidden = true
     }
